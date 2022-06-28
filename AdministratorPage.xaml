@@ -1,0 +1,43 @@
+﻿<Page x:Class="KingITAleksandrov.AdministratorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KingITAleksandrov"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdministratorPage" IsVisibleChanged="Page_IsVisibleChanged">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="377"/>
+            <RowDefinition Height="73"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Введите фамилию: " Width="116" TextAlignment="Right" Margin="260,-220,0,116"/>
+            <TextBox Width="200" x:Name="TBoxSearch" TextChanged="TBoxSearch_TextChanged" Margin="0,-220,0,116" Height="16"/>
+        </StackPanel>
+        <Image Source="Resources/Emblema.png" HorizontalAlignment="left" Width="167" Margin="-10,66,0,116"/>
+
+        <DataGrid x:Name="DGridEmployees" AutoGenerateColumns="False" IsReadOnly="True" Height="339" VerticalAlignment="Bottom" Margin="147,0,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding employeeSurname}" Width="90"></DataGridTextColumn>
+                <DataGridTextColumn Header="Имя" Binding="{Binding employeeFirstname}" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding employeeSecondname}" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Header="Логин" Binding="{Binding employeeLogin}" Width="80"></DataGridTextColumn>
+                <DataGridTextColumn Header="Пароль" Binding="{Binding employeePassword}" Width="75"></DataGridTextColumn>
+                <DataGridTextColumn Header="Роль" Binding="{Binding employeeRole}" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Header="Номер телефона" Binding="{Binding phoneNumber}" Width="110"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Click"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Добавить" Grid.Row="1" HorizontalAlignment="Left" Name="BtnAdd" Click="BtnAdd_Click"></Button>
+        <Button Content="Удалить" Grid.Row="1" HorizontalAlignment="Right" Name="BtnDelete" Click="BtnDelete_Click"></Button>
+    </Grid>
+</Page>

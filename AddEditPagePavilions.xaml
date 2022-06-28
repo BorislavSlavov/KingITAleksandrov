@@ -1,0 +1,44 @@
+﻿<Page x:Class="KingITAleksandrov.AddEditPagePavilions"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KingITAleksandrov"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddEditPagePavilions">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Название ТЦ"></TextBlock>
+        <TextBlock Text="Номер павильона" Grid.Row="1"></TextBlock>
+        <TextBlock Text="Площадь" Grid.Row="2"></TextBlock>
+        <TextBlock Text="КДС Павильона" Grid.Row="3"></TextBlock>
+        <TextBlock Text="Стоимость кв. м." Grid.Row="4"></TextBlock>
+        <TextBlock Text="Статус павильона" Grid.Row="5"></TextBlock>
+        <TextBlock Text="Номер этажа" Grid.Row="6"></TextBlock>
+        <ComboBox SelectedItem="{Binding ShopCenters}" Grid.Column="1" x:Name="ComboSC" DisplayMemberPath="shopCenterName" Width="300" HorizontalAlignment="Left"></ComboBox>
+        <TextBox MaxLength="5" Text="{Binding pavilionNumber}" Grid.Column="1" Grid.Row="1"/>
+        <TextBox MaxLength="5" Text="{Binding area}" Grid.Column="1" Grid.Row="2"/>
+        <TextBox MaxLength="5" Text="{Binding valueAddedFactor}" Grid.Column="1" Grid.Row="3"/>
+        <TextBox MaxLength="10" Text="{Binding costPerSquareMeter}" Grid.Column="1" Grid.Row="4"/>
+        <ComboBox SelectedItem="{Binding status}" Grid.Row="5" Grid.Column="1" x:Name="ComboStatus"></ComboBox>
+        <TextBox MaxLength="5" Text="{Binding stage}" Grid.Column="1" Grid.Row="6"/>
+        
+
+        <Button Content="Сохранить" Grid.Row="8" Name="BtnSave" Click="BtnSave_Click" Grid.Column="1" />
+    </Grid>
+</Page>
